@@ -1,0 +1,14 @@
+name = "Dialogs for Allieddday by Ossitech"
+uid = "428452f0-38db-11dd-ae16-0800200c9a42"
+version = 1
+description = "New Dialogs for Allieddday"
+author = "Ossitech"
+selectable = true
+enabled = true
+exclusive = false
+ui_only = false
+requires = {}
+requiresNames = {}
+conflicts = {}
+before = {}
+after = {}
