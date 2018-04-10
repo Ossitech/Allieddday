@@ -929,7 +929,7 @@ Survival_SpawnDef = function()
 	LOG("----- Survival MOD: Initializing defense object...");
 
 	local POS = ScenarioUtils.MarkerToPosition("SURVIVAL_CENTER_1");
-	Survival_DefUnit = CreateUnitHPR('XRB3301', "ARMY_SURVIVAL_ALLY", POS[1], POS[2], POS[3], 0,0,0);
+	Survival_DefUnit = CreateUnitHPR('UEC1401', "ARMY_SURVIVAL_ALLY", POS[1], POS[2], POS[3], 0,0,0);
     
 	Survival_DefUnit:SetReclaimable(false);
 	Survival_DefUnit:SetCapturable(false);
@@ -1060,7 +1060,7 @@ end
 Survival_Tick = function(self)
 
 	LOG("----- Survival MOD: Tick thread started with interval of (" .. Survival_TickInterval .. ")");
-
+    local oldNumArmies=table.getn(ListArmies());
 	while (Survival_GameState < 2) do
 
 		Survival_CurrentTime = GetGameTimeSeconds();
@@ -1070,7 +1070,7 @@ Survival_Tick = function(self)
 --		LOG("----- Survival MOD: -LOOP- GameState: " .. Survival_GameState .. "     NextSpawnTime: " .. SecondsToTime(Survival_NextSpawnTime) .. " (" .. Survival_NextSpawnTime .. ")     Clock:" .. SecondsToTime(Survival_CurrentTime) .. " (" .. Survival_CurrentTime .. ")");
 
 --		Survival_DefUnit:UpdateShieldRatio(0.5); --Survival_CurrentTime / Survival_ObjectiveTime);
-
+        
 		if (Survival_CurrentTime >= Survival_ObjectiveTime) then
 
 			Survival_GameState = 2;
@@ -1120,7 +1120,7 @@ Survival_Tick = function(self)
 					Survival_NextSpawnTime = Survival_NextSpawnTime + ScenarioInfo.Options.opt_Survival_WaveFrequency; -- update next wave spawn time by wave frequency
 				end
 
-				Survival_DefUnit:SetCustomName('Level ' ..  (Survival_WaveTables[2][1] - 1) .. "/" .. (table.getn(Survival_WaveTables[2]) - 1) ); -- .. ' (' .. SecondsToTime(Survival_CurrentTime - (Survival_WaveTables[1][Survival_WaveTables[1][1] + 1][1] * 60)).. ')');
+				Survival_DefUnit:SetCustomName('Biergarten Eden: Level ' ..  (Survival_WaveTables[2][1] - 1) .. "/" .. (table.getn(Survival_WaveTables[2]) - 1) ); -- .. ' (' .. SecondsToTime(Survival_CurrentTime - (Survival_WaveTables[1][Survival_WaveTables[1][1] + 1][1] * 60)).. ')');
 				--SecondsToTime((Survival_WaveTables[1][(Survival_WaveTables[1][1])][1] * 60) - Survival_CurrentTime)
 			end
 
