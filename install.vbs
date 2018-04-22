@@ -2,8 +2,8 @@ Set fso=Wscript.CreateObject("Scripting.FileSystemObject")
 Set shell=WScript.CreateObject("WScript.Shell")
 Dim path
 Dim test
-path=shell.ExpandEnvironmentStrings("%userProfile%")&"\Documents\My Games\Gas Powered Games\Supreme Commander Forged Alliance"
-selectedPath=SelectFolder(path, "Wähle den Forged Alliance Ordner aus!")
+'path=shell.ExpandEnvironmentStrings("%userProfile%")&"\Documents\My Games\Gas Powered Games\Supreme Commander Forged Alliance"
+selectedPath=SelectFolder("", "Wähle den Forged Alliance Ordner aus!")
 If test="1" Then
 	MsgBox "Canceled!"
 Else
